@@ -1,0 +1,17 @@
+TN:
+SF:src\unitTest\01.ts
+FN:1,sum
+FN:5,mult
+FNF:2
+FNH:2
+FNDA:2,sum
+FNDA:2,mult
+DA:1,1
+DA:2,2
+DA:5,1
+DA:6,2
+LF:4
+LH:4
+BRF:0
+BRH:0
+end_of_record
