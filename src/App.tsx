@@ -33,7 +33,7 @@ function App() {
             {/*<FullInput onClick={onClickButtonHandler}/>*/}
             <Input title={title} setTitle={setTitle}/>
             <Button callBack={callBack} name={'Add'}/>
-            <InputRef setTitle={setTitleRef}/>
+            <InputRef setTitle={setTitleRef} titleRef={titleRef}/>
             <Button callBack={callBackRef} name={'Add'}/>
             {/*<div>*/}
             {/*    <input/>*/}

@@ -2,6 +2,7 @@ import { useRef } from "react"
 
 type InputRefPropsType = {
     setTitle: (title: string) => void
+    titleRef: string
 }
 
 
@@ -15,7 +16,7 @@ const onChangeHandler = ()=>{
 }
 
     return (
-        <input ref={inputRef} onChange={onChangeHandler}/>
+        <input value={props.titleRef} ref={inputRef} onChange={onChangeHandler}/>
     )
 
 }
