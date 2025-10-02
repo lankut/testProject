@@ -187,4 +187,4 @@ const polifArr = (arr, callback) => {
     return newArr
 }
 
-console.log(polifArr(users2, (el) => el.name));
+// console.log(polifArr(users2, (el) => el.name));

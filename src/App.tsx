@@ -3,6 +3,7 @@ import './App.css'
 import {Button} from "./components/Button.tsx";
 import {Input} from "./components/Input.tsx";
 import { InputRef } from './components/inputRef.tsx';
+import { UncontrolledRating } from './uncontrolledRating.tsx';
 
 export type MessageType = {
     message: string
@@ -44,6 +45,8 @@ function App() {
                     {mess.message}
                 </div>
             })}
+
+            <UncontrolledRating/>
         </div>
     )
 }
