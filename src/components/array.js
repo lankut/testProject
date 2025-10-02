@@ -58,13 +58,133 @@ const concatArr2 = arr1.concat(arr2, 100, 200)
 
 const arr4 = [1, 2]
 const arr5 = [3, 4]
- 
+
 const nestedArr = [
-  [5, 6],
-  [7, 8],
+    [5, 6],
+    [7, 8],
 ]
 const newNestedArr = arr4.concat(arr5, nestedArr)
 // console.log(newNestedArr);
- 
+
 const flatArr = newNestedArr.flat(Infinity)
 // console.log(flatArr);
+
+const arr = [1, 2, 3, 4, 5]
+let sum = 0
+arr.forEach((el) => { sum += el })
+// console.log(sum);
+
+const numbers = [1, 2, 3, 3, 3, 3, 4, 5]
+numbers.forEach((el, ind, arr) => {
+    arr[ind] = el * 2
+})
+// console.log(numbers);
+const res = numbers.indexOf(6)
+// console.log(res);
+
+const numbers2 = [1, 2, 3, 3, 3, 3, 4, 5]
+const res2 = numbers2.lastIndexOf(3)
+// console.log(res2);
+
+const arr6 = ['abc', 'defg', 'kl', 'mn']
+const res3 = arr6.find((el) => { return el.length === 2 })
+// console.log(res3);
+
+const res4 = numbers2.findIndex((el) => { return el % 2 === 0 })
+// console.log(res4);
+
+const arr7 = ['a', 'b', 'c', 'd']
+const res5 = arr7.findLastIndex((el) => {
+    let ind = el === 'c'
+    return ind
+})
+// console.log(res5);
+const res6 = arr7.includes('v')
+
+// console.log(res6);
+
+const words = ['spray', 'elite', 'exuberant', 'destruction', 'present']
+
+const res7 = words.filter(el => el !== 'elite')
+const res8 = words.filter(el => el.length <= 5)
+// console.log(res7, res8);
+
+const numbers7 = [1000, 4, 400, 22, -1]
+
+const sortVal = (a, b) => {
+    if (a < b) {
+        return 1
+    } else {
+        return -1
+    }
+}
+const res9 = numbers7.sort(sortVal)
+// console.log(res9);
+
+const users = [
+    {
+        id: 1,
+        name: 'Bob',
+        isStudent: true,
+    },
+    {
+        id: 2,
+        name: 'Alex',
+        isStudent: true,
+    },
+    {
+        id: 3,
+        name: 'alex',
+        isStudent: true,
+    },
+]
+
+const res10 = users.sort((a, b) => { return a.name.localeCompare(b.name) })
+// console.log(res10);
+
+const months = ['Mar', 'Jan', 'Feb', 'Dec']
+
+const toSort = months.toSorted()
+// console.log(toSort);
+// console.log(months);
+
+const values = [1, 10, 21, 2]
+const sortedValues = values.toSorted((a, b) => a - b)
+// console.log(sortedValues)
+// console.log(values)
+
+const users2 = [
+    {
+        id: 1,
+        name: 'Bob',
+        isStudent: true,
+    },
+    {
+        id: 2,
+        name: 'Alex',
+        isStudent: true,
+    },
+    {
+        id: 3,
+        name: 'Ann',
+        isStudent: true,
+    },
+    {
+        id: 4,
+        name: 'Donald',
+        isStudent: true,
+    },
+]
+
+const newArr = users2.map((el) => el.name)
+
+const polifArr = (arr, callback) => {
+    const newArr = []
+    for (let i = 0; i < arr.length; i++) {
+        newArr.push(callback(arr[i]))
+    }
+
+    return newArr
+}
+
+console.log(polifArr(users2, (el) => el.name));
