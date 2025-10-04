@@ -4,6 +4,7 @@ export const UncontrolledRating = () => {
 
     const [value, setValue] = useState(0)
 
+
     return (
         <div>
             <Star selected={value > 0} setValue={setValue} value={1} />

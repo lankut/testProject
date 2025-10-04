@@ -4,9 +4,6 @@ export const Accordion = () => {
 
     const [accordion, setAccordion] = useState(false)
 
-    console.log(accordion);
-
-
     return (
         <div>
             <AccordionTitle title={'Меню'} setAccordion={setAccordion} accordion={accordion} />
