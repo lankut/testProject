@@ -275,3 +275,118 @@ const combineInfoMap = {
     titalAge: mappedInfo.reduce((acc, nextAge) => { nextAge.age + acc }, 0)
 }
 // console.log(combineInfo);
+//--------------------------------------------------------------------------------------------------------
+// Синтаксис вычисляемых свойств объекта в JavaScript. map-set, object.keys, object.values, object.entries
+
+let fruits2 = {
+    color: 'red',
+    taste: 'sweet',
+}
+// console.log(fruits2['color']);
+// console.log(fruits2.taste);
+function createObject(key, value) {
+    const newObj = {}
+    newObj[key] = value
+    return newObj
+}
+
+// console.log(createObject('car', 'Audi'));
+
+function createObj2(key, value) {
+    return { [key]: value }
+}
+
+// console.log(createObj2('key_2', 'value_2' ));
+
+const propertyName = 'age'
+
+const person2 = {
+    name: 'Alice',
+    [propertyName]: 35
+}
+// console.log(person2);
+
+const prefix = 'user_'
+let user = {
+    [prefix + 'id']: 56,
+    [prefix + 'name']: 'Alice'
+}
+
+// console.log(user);
+const index = 2
+
+const object = {
+    [index + 2]: 'fourth element',
+    [index + 3]: 'fourth element 3',
+    [index + 4]: 'fourth element 4',
+    [index + 5]: 'fourth element 5',
+
+}
+// console.log(object);
+
+const person3 = {
+    ['age' + 2]: 32,
+    [2 + 2]: 'four'
+}
+// console.log(person3);
+
+function createObj3(key, val) {
+    return {
+        [key.toUpperCase()]: val
+    }
+}
+// console.log(createObj3('car', 'audi'));
+
+const STATUS_BUSY = 'busy'
+const STATUS_READY = 'ready'
+
+const STATUS_LABELS = {
+    [STATUS_BUSY]: 'Ожидает',
+    [STATUS_READY]: 'Готов',
+}
+
+const drivers = [
+    { name: 'Павел', status: 'busy' },
+    { name: 'Сергей', status: 'ready' },
+]
+
+const driverStatuses = drivers.map(driver => {
+    const { status } = driver
+    return STATUS_LABELS[status]
+})
+// console.log(driverStatuses)
+
+
+let condition = false
+document.getElementById('toggleButton').onclick = function () {
+    condition = !condition
+
+    const person = {
+        name: 'John',
+        [condition ? 'age' : 'height']: condition ? 25 : 180
+    }
+    console.log(person);
+
+}
+
+const routes = {
+    home: '/',
+    about: '/about',
+    contact: '/contact',
+};
+
+let currentRoute = 'about';
+
+function navigate(route) {
+    currentRoute = route;
+    console.log(routes[currentRoute]);
+}
+document.getElementById('homeButton').onclick = function () {
+    navigate('home');
+};
+document.getElementById('aboutButton').onclick = function () {
+    navigate('about');
+};
+document.getElementById('contactButton').onclick = function () {
+    navigate('contact');
+};
