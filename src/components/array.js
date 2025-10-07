@@ -188,3 +188,90 @@ const polifArr = (arr, callback) => {
 }
 
 // console.log(polifArr(users2, (el) => el.name));
+//.SLICE()
+let arr8 = ['a', 'b', 'c', 'd', 'e']
+let arr9 = ['a', 'b', 'c', 'd', 'e']
+let sub = arr8.slice(0, 2)
+
+// console.log(sub);
+// console.log(arr8);
+
+const sub2 = arr8.slice(2)
+// console.log(sub2);
+const sub3 = arr8.slice(1, -1) // возвращает массив по предпоследний элемент
+// console.log(sub3);
+
+// .SPLICE()
+const sub4 = arr8.splice(1, 3)
+const sub5 = arr8.splice(1, 0, 4, 5)
+const sub6 = arr9.splice(-3, 1)
+// console.log(arr9);
+// console.log(sub6);
+
+// .ToSPLICED()
+const months2 = ['Jan', 'Mar', 'Apr', 'May']
+const sub_month = months2.toSpliced(1, 1)
+// console.log(sub_month);
+
+const months3 = months2.toSpliced(2, 2)
+// console.log(months3)
+
+const months4 = months2.toSpliced(1, 1, 'Feb', 'Mar')
+// console.log(months4)
+
+//.REDUCE()
+const a = [1, 2, 3, 4, 5, 6, 7]
+
+let summ = 0
+
+for (let i = 0; i < a.length; i++) {
+    summ += a[i]
+}
+// console.log('Result', summ);
+
+const result2 = a.reduce((prev, item, index) => {
+    return summ = prev + item
+}, 0)
+
+// console.log(result2);
+
+const fruits = [
+    { name: 'apple', quntity: 2 },
+    { name: 'banana', quntity: 3 },
+    { name: 'orange', quntity: 1 }
+]
+// fruits[i]
+const totalQuantity = fruits.reduce((start, next) => start + next.quntity, 0)
+// console.log(totalQuantity);
+
+const array = [5, 3, 22, 7, 8, 3, 4, 7, 1, 19]
+const total1 = array.reduce((accum, next) => accum > next ? accum : next, array[0])
+// console.log(total1);
+
+const people = [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 30 },
+    { name: 'Charlie', age: 22 },
+    { name: 'Emma', age: 27 },
+    { name: 'Olivia', age: 23 }
+]
+
+const combineInfo = people.reduce(
+    (acc, person) => {
+        acc.name.push(person.name)
+        acc.totalAge += person.age
+        return acc
+    }, { name: [], totalAge: 0 }
+)
+
+const mappedInfo = people.map((person) => ({
+    name: person.name,
+    age: person.age
+}))
+// console.log(mappedInfo);
+
+const combineInfoMap = {
+    names: mappedInfo.map(person => person.name),
+    titalAge: mappedInfo.reduce((acc, nextAge) => { nextAge.age + acc }, 0)
+}
+// console.log(combineInfo);
