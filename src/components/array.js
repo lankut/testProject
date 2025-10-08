@@ -390,3 +390,71 @@ document.getElementById('aboutButton').onclick = function () {
 document.getElementById('contactButton').onclick = function () {
     navigate('contact');
 };
+
+const user3 = {
+    name: 'Ivan',
+    propfession: 'doctor',
+    salary: 1000
+}
+
+const userKey = Object.keys(user3)
+// console.log(userKey);
+const userValues = Object.values(user3)
+const userEntries = Object.entries(user3)
+
+// console.log(userEntries);
+
+const value = new Map()
+// console.log(value);
+
+const map = new Map()
+
+map.set('1', 'str1') // строка в качестве ключа
+map.set(1, 'num1') // цифра в качестве ключа
+map.set(true, 'boolean') // булево значение в качестве ключа
+
+// console.log(map.get('1'));
+// console.log(map.get(1));
+// console.log(map.get(true));
+// console.log(map.size);
+
+const user2 = { name: 'Alice' }
+const user1 = { name: 'John' }
+const userMap = new Map()
+userMap.set(user1, 'Пользователь1')
+// console.log(userMap);
+
+userMap.set(user2, 'Пользователь2')
+// console.log(userMap.get(user2));
+
+let myArray = [
+    ['ключ1', 'значение1'],
+    ['ключ2', 'значение2'],
+    ['ключ3', 'значение3'],
+]
+
+const arrayMap = new Map(myArray)
+
+// console.log(arrayMap);
+
+const mySet = new Set()
+mySet.add('Hello')
+mySet.add({})
+
+// console.log(mySet);
+// console.log(mySet.has('Hell'));
+// console.log(mySet.size);
+const myArray2 = ['значение1', 'значение2', 'значение1']
+
+mySet.add(myArray2)
+// console.log(mySet);
+const newMySet = new Set(myArray2)
+// console.log(newMySet);
+
+const numbers3 = [1, 2, 3, 4, 2, 3, 5, 6, 1]
+
+const uniqueNumbers = new Set(numbers)
+
+const uniqueNumbersArray = [...uniqueNumbers]
+
+// console.log(uniqueNumbersArray)
