@@ -458,3 +458,59 @@ const uniqueNumbers = new Set(numbers)
 const uniqueNumbersArray = [...uniqueNumbers]
 
 // console.log(uniqueNumbersArray)
+
+const numbers1 = [4, 3, 5]
+const count = 2
+//res = 20
+const numbers4 = [10, 2, 3, 8, 1, 10, 4]
+const count1 = 5
+// res = 9600
+
+
+function maxProduct(numbers, size) {
+    let newRes = 1
+
+    const sortArr = numbers.sort((a, b) => {
+        return b - a
+    })
+
+    for (let i = 0; i < sortArr.length; i++) {
+        if (i < size) {
+            newRes *= numbers[i]
+        }
+    }
+
+    return newRes
+}
+
+// console.log(maxProduct(numbers4, count1));
+
+const arr10 = [[1, 2, 3, 4], [5, 6, 7, 8]]
+//res = [3, 4, 5, 6]
+const arr11 =[[1.2, 8.521, 0.4, 3.14, 1.9], [2, 4.5, 3.75, 0.987, 1.0]]
+//res = [1.6, 6.5105, 2.075, 2.0635, 1.45])
+
+const arr12 = [[2, 3, 9, 10, 7], [12, 6, 89, 45, 3], [9, 12, 56, 10, 34], [67, 23, 1, 88, 34]]
+
+//res = [22.5, 11, 38.75, 38.25, 19.5]
+
+function avgArray(arr) {
+    const newObj = {}
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let y = 0; y < arr[i].length; y++) {
+            if (i === 0) {
+                newObj[y] = arr[i][y]
+            } else {
+                newObj[y] = newObj[y] + arr[i][y]
+
+            }
+        }
+    }
+    const newArr0 = Object.values(newObj)
+    const newArr = newArr0.map((e) => e / arr.length)
+
+    return newArr
+}
+
+console.log(avgArray(arr12));

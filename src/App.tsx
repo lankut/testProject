@@ -4,7 +4,7 @@ import { Button } from "./components/Button.tsx";
 import { Input } from "./components/Input.tsx";
 import { InputRef } from './components/inputRef.tsx';
 import { UncontrolledRating } from './uncontrolledRating.tsx';
-import { Accordion } from './accordion.tsx';
+import { Accordion } from './components/accordion/accordion.tsx';
 
 export type MessageType = {
     message: string
