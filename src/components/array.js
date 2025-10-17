@@ -487,7 +487,7 @@ function maxProduct(numbers, size) {
 
 const arr10 = [[1, 2, 3, 4], [5, 6, 7, 8]]
 //res = [3, 4, 5, 6]
-const arr11 =[[1.2, 8.521, 0.4, 3.14, 1.9], [2, 4.5, 3.75, 0.987, 1.0]]
+const arr11 = [[1.2, 8.521, 0.4, 3.14, 1.9], [2, 4.5, 3.75, 0.987, 1.0]]
 //res = [1.6, 6.5105, 2.075, 2.0635, 1.45])
 
 const arr12 = [[2, 3, 9, 10, 7], [12, 6, 89, 45, 3], [9, 12, 56, 10, 34], [67, 23, 1, 88, 34]]
@@ -513,4 +513,252 @@ function avgArray(arr) {
     return newArr
 }
 
-console.log(avgArray(arr12));
+// console.log(avgArray(arr12));
+
+const array1 = [[45, 12], [55, 21], [19, -2], [104, 20]]
+// res = ['Open', 'Senior', 'Open', 'Senior'])
+
+function openOrSenior(data) {
+    const newArray = []
+    for (let i = 0; i < data.length; i++) {
+        if (data[i][0] >= 55 && data[i][1] > 7) {
+            newArray.push('Senior')
+        } else {
+            newArray.push('Open')
+        }
+    }
+    return newArray
+}
+// console.log(openOrSenior(array1));
+
+
+//DEEP COPY===================================================================================================
+
+// links to watch theory
+// https://www.youtube.com/watch?v=6napu-MGQDo&list=PLcvhF2Wqh7DNVy1OCUpG3i5lyxyBWhGZ8&index=47
+// https://www.youtube.com/watch?v=I8LNJpG60vI&feature=youtu.be
+
+// 1. Simple object
+
+let man = {
+    name: 'John',
+    age: 28
+}
+
+let manFullCopy = { ...man }
+
+
+// 2. Array of primitives
+let numbers8 = [1, 2, 3];
+
+let numbersFullCopy = [...numbers8]
+
+
+// 3. Object inside an object
+let man1 = {
+    name: 'John',
+    age: 28,
+    mother: {
+        name: 'Kate',
+        age: 50
+    }
+};
+
+let man1FullCopy = { ...man1, mother: { ...man1.mother } }
+
+
+// 4. Array of primitives inside an object
+let man2 = {
+    name: 'John',
+    age: 28,
+    friends: ["Peter", "Steven", "William"]
+};
+
+let man2FullCopy = {
+    ...man2, friends: [...man2.friends]
+}
+
+// 5 Array of objects
+let people1 = [
+    { name: "Peter", age: 30 },
+    { name: "Steven", age: 32 },
+    { name: "William", age: 28 }
+];
+
+
+let people1FullCopy = [
+    { ...people1[0] },
+    { ...people1[1] },
+    { ...people1[2] }
+]
+
+// 6 Array of objects inside object
+let man3 = {
+    name: 'John',
+    age: 28,
+    friends: [
+        { name: "Peter", age: 30 },
+        { name: "Steven", age: 32 },
+        { name: "William", age: 28 }
+    ]
+};
+
+let man3FullCopy = {
+    ...man3,
+    friends: [
+        { ...man3.friends[0] },
+        { ...man3.friends[1] },
+        { ...man3.friends[2] },
+    ]
+}
+
+
+// 7 Object inside an object, inside an object
+let man4 = {
+    name: 'John',
+    age: 28,
+    mother: {
+        name: "Kate",
+        age: 50,
+        work: {
+            position: "doctor",
+            experience: 15
+        }
+    }
+};
+
+let man4FullCopy = {
+    ...man4,
+    mother: {
+        ...man4.mother,
+        work: { ...man4.mother.work }
+    }
+}
+
+// 8 Array of objects inside object -> object
+let man5 = {
+    name: 'John',
+    age: 28,
+    mother: {
+        name: "Kate",
+        age: 50,
+        work: {
+            position: "doctor",
+            experience: 15
+        },
+        parents: [
+            { name: "Kevin", age: 80 },
+            { name: "Jennifer", age: 78 },
+        ]
+    }
+};
+
+let man5FullCopy = {
+    ...man5,
+    mother: {
+        ...man5.mother,
+        work: { ...man5.mother.work },
+        parents: [{ ...man5.mother.parents[0] }, { ...man5.mother.parents[1] }]
+    }
+}
+
+
+// 9 Object inside an object -> array -> object ->  object
+let man6 = {
+    name: 'John',
+    age: 28,
+    mother: {
+        name: "Kate",
+        age: 50,
+        work: {
+            position: "doctor",
+            experience: 15
+        },
+        parents: [
+            {
+                name: "Kevin",
+                age: 80,
+                favoriteDish: {
+                    title: "borscht"
+                }
+            },
+            {
+                name: "Jennifer",
+                age: 78,
+                favoriteDish: {
+                    title: "sushi"
+                }
+            },
+        ]
+    }
+};
+
+let man6FullCopy = {
+    ...man6,
+    mother: {
+        ...man6.mother,
+        work: { ...man6.mother.work },
+        parents: [{ ...man6.mother.parents[0] }, { ...man6.mother.parents[1] }]
+    }
+}
+
+//10 Array of objects inside an object -> object -> array -> object ->  object
+let man7 = {
+    name: 'John',
+    age: 28,
+    mother: {
+        name: "Kate",
+        age: 50,
+        work: {
+            position: "doctor",
+            experience: 15
+        },
+        parents: [
+            {
+                name: "Kevin",
+                age: 80,
+                favoriteDish: {
+                    title: "borscht",
+                    ingredients: [
+                        { title: "beet", amount: 3 },
+                        { title: "potatoes", amount: 5 },
+                        { title: "carrot", amount: 1 },
+                    ]
+                }
+            },
+            {
+                name: "Jennifer",
+                age: 78,
+                favoriteDish: {
+                    title: "sushi",
+                    ingredients: [
+                        { title: "fish", amount: 1 },
+                        { title: "rise", amount: 0.5 }
+                    ]
+                }
+            },
+        ]
+    }
+};
+
+let man7FullCopy = {
+    ...man7,
+    mother: {
+        ...man7.mother,
+        work: { ...man7.mother.work },
+        parents: [{
+            ...man7.mother.parents[0],
+            favoriteDish: {
+                ...man7.mother.parents[0].favoriteDish,
+                ingredients: [...man7.mother.parents[0].favoriteDish.ingredients]
+            }
+        },
+        {
+            ...man7.mother.parents[1], favoriteDish: {
+                ...man7.mother.parents[1].favoriteDish,
+                ingredients: [...man7.mother.parents[1].favoriteDish.ingredients]
+            }
+        }
+        ]
+    }
+}
