@@ -762,3 +762,98 @@ let man7FullCopy = {
         ]
     }
 }
+
+const array2 = [1, 2, 3, 4, 5]
+
+const head = (arr) => {
+    let headValue = arr[0]
+    return headValue
+}
+
+// console.log(head(array2));
+
+
+const tail = (arr) => {
+    const newArr = []
+    for (let i = 1; i < arr.length; i++) {
+        newArr.push(arr[i])
+    }
+    return newArr
+}
+
+// console.log(tail(array2));
+
+const init = (arr) => {
+    const newArr = []
+    for (let i = 0; i < arr.length - 1; i++) {
+        newArr.push(arr[i])
+    }
+    return newArr
+}
+// console.log(init(array2));
+
+const last = (arr) => {
+    let lastValue = arr.length - 1
+    return arr[lastValue]
+}
+
+// console.log(last(array2));
+
+const pin1 = '1234'
+const pin2 = '123456'
+const pin3 = 'd1234'
+const pin4 = '123f4'
+const pin5 = "-1.234"
+const pin6 = "a234"
+const pin7 = "0000"
+const pin8 = "1"
+const pin9 = "123 "
+// function validatePIN(pin) {
+//     const exam = Number(pin)
+//     const examRound = Math.round(exam)
+//     const examRoundString = examRound.toString().length
+//     const numberPin = Number.isNaN(examRound)
+
+//     if ((examRoundString === 4 && !numberPin) || (examRoundString === 6 && !numberPin)) {
+//         return true
+//     }
+//     return false
+// }
+
+
+// console.log(validatePIN(pin7));
+
+function validatePIN(pin) {
+    const length = pin.length
+    const arr = []
+
+    const newPin = pin.trim()
+    for (let i = 0; i < newPin.length; i++) {
+        let number = Number(newPin[i])
+        // console.log(number);
+
+        const nan = Number.isNaN(number)
+
+        if (!nan) {
+            arr.push(number)
+        }
+    }
+
+    if ((arr.length === length) && (length === 4 || length === 6)) {
+        return true
+    }
+    return false
+}
+
+// console.log(validatePIN(pin9));
+
+const fnd = () => {
+    console.log('первый вызов');
+
+    return function (f) {
+        console.log(f);
+
+    }
+}
+
+console.log(fnd()('второй вызов'));
