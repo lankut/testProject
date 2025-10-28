@@ -5,6 +5,7 @@ import { Input } from "./components/Input.tsx";
 import { InputRef } from './components/inputRef.tsx';
 import { UncontrolledRating } from './uncontrolledRating.tsx';
 import { Accordion } from './components/accordion/accordion.tsx';
+import { Select } from './components/select/select.tsx';
 
 export type MessageType = {
     message: string
@@ -30,6 +31,8 @@ function App() {
         setTitleRef('')
     }
 
+    const [value, setValue] = useState('2')
+
     return (
         <div className="App">
             {/*<FullInput onClick={onClickButtonHandler}/>*/}
@@ -46,9 +49,16 @@ function App() {
                     {mess.message}
                 </div>
             })}
-
             <UncontrolledRating />
             <Accordion />
+            <Select value={value} onChange={setValue} items={[
+                { value: '1', title: 'iPhone6' },
+                { value: '2', title: 'iPhone7' },
+                { value: '3', title: 'iPhone8' },
+                { value: '4', title: 'iPhoneXP' },
+                { value: '5', title: 'iPhone15' },
+                { value: '6', title: 'iPhone12' },
+            ]} />
         </div>
     )
 }

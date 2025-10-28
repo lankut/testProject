@@ -1,0 +1,17 @@
+.select {
+    border: 1px solid black;
+    display: inline-block;
+    padding: 3px;
+}
+
+.main {
+    border: 1px solid black;
+    position: absolute;
+    left: 178px;
+    /* padding: 5px; */
+
+}
+
+.light:hover {
+    background-color: lightblue;
+}
