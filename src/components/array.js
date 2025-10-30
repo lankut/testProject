@@ -857,3 +857,44 @@ const fnd = () => {
 }
 
 console.log(fnd()('второй вызов'));
+
+
+const array3 = [2, 4, 6]
+
+class Block {
+
+    constructor(data) {
+        this.width = data[0]
+        this.length = data[1]
+        this.height = data[2]
+    }
+
+    getWidth() {
+        return this.width
+    }
+
+    getLength() {
+        return this.length
+    }
+
+    getHeight() {
+        return this.height
+    }
+
+    getVolume() {
+        return this.width * this.length * this.height
+    }
+
+    getSurfaceArea() {
+        const area1 = this.width * this.height * 2
+        const area2 = this.length * this.height * 2
+        const area3 = this.length * this.width * 2
+
+        const res = area1 + area2 + area3
+        return res
+    }
+}
+
+const newBlock = new Block(array3)
+
+console.log(newBlock.getSurfaceArea());

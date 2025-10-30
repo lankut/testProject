@@ -1,16 +1,25 @@
+/* .root {
+
+} */
+
 .select {
     border: 1px solid black;
     display: inline-block;
     padding: 3px;
+    position: relative;
 }
 
 .main {
     border: 1px solid black;
     position: absolute;
-    left: 178px;
-    /* padding: 5px; */
-
+    top:100%;
 }
+
+.main.closed {
+    display: none;
+
+} 
+    
 
 .light:hover {
     background-color: lightblue;

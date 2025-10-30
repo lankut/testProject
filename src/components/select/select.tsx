@@ -13,7 +13,6 @@ type SelectPropsType = {
 }
 
 export const Select = (props: SelectPropsType) => {
-console.log('Select отрисован');
 
     const [active, setActive] = useState(false)
 
@@ -27,16 +26,16 @@ console.log('Select отрисован');
 
     const selectedItem = props.items.find((i) => i.value === props.value)
 
-    return (
-        <>
+     return (
+        <div className={s.root}>
             {/* <select>
                 {props.items.map(e => <option value={e.value}>{e.title}</option>)}
             </select> */}
-            <div className={s.select} onClick={onChangeHandler}>{selectedItem && selectedItem.title}</div>
-            <div className={s.main}>
-                {active && props.items.map(el => <div className={s.light} onClick={() => onClickItem(el.value)}>{el.title}</div>)}
+            <div className={`s.main ${active ? '' : 'closed'}`}>
+                <div className={s.select} onClick={onChangeHandler}>{selectedItem && selectedItem.title}
+                    {active && props.items.map(el => <div className={s.light} onClick={() => onClickItem(el.value)}>{el.title}</div>)}
+                </div>
             </div>
-
-        </>
+        </div>
     )
 }

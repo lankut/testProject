@@ -1,11 +1,14 @@
+import type { ActionType, StateType } from "./accordionReducer"
+import { TOOGLE_COLLAPSED } from "./accordionReducer"
+
 type AccordionTitleTypeProps = {
     title: string
-    setAccordion: (value: boolean) => void
-    accordion: boolean
+    dispatch: (type: ActionType) => void
+    state: StateType
 }
 
 export const AccordionTitle = (props: AccordionTitleTypeProps) => {
     return (
-        <h3 onClick={() => props.setAccordion(!props.accordion)}>{props.title}</h3>
+        <h3 onClick={() => props.dispatch({type: TOOGLE_COLLAPSED})}>{props.title}</h3>
     )
 }
