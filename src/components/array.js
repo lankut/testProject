@@ -848,7 +848,7 @@ function validatePIN(pin) {
 // console.log(validatePIN(pin9));
 
 const fnd = () => {
-    console.log('первый вызов');
+    // console.log('первый вызов');
 
     return function (f) {
         console.log(f);
@@ -856,7 +856,7 @@ const fnd = () => {
     }
 }
 
-console.log(fnd()('второй вызов'));
+// console.log(fnd()('второй вызов'));
 
 
 const array3 = [2, 4, 6]
@@ -897,4 +897,78 @@ class Block {
 
 const newBlock = new Block(array3)
 
-console.log(newBlock.getSurfaceArea());
+// console.log(newBlock.getSurfaceArea());
+
+const string = 'createfunction'
+
+function makeUpperCase(str) {
+    return str.toUpperCase()
+}
+
+// console.log(makeUpperCase(string));
+
+//---------------DRAW ME A CHESSBOARD-------------------------------------------------------- 
+
+
+function chessBoard(rows, columns) {
+    const board = []
+
+    for (let i = 0; i < rows; i++) {
+        const row = []
+        for (let j = 0; j < columns; j++) {
+            const obj = {
+                x: 'X',
+                o: 'O',
+            }
+            if ((j + i) % 2 === 0) {
+                row.push(obj.o)
+            } else {
+                row.push(obj.x)
+            }
+        }
+        board.push(row)
+    }
+    return board
+}
+
+// console.log(chessBoard(3, 4));
+
+//-------LAST--------------------------------------------------------------
+
+function last2(...anything) {
+    let lastIndex = null
+    for (let i = 0; i < anything.length; i++) {
+        if (typeof anything[i] === 'object') {
+            lastIndex = anything[i]
+            if (anything.length === 1) {
+                lastIndex = anything[i][anything[i].length - 1]
+            }
+        }
+        else if (typeof anything[i] === 'string') {
+            lastIndex = anything[i][anything[i].length - 1]
+            if (anything.length > 1) {
+                lastIndex = anything[i]
+            }
+        } else if (typeof anything[i] === 'number') {
+            lastIndex = anything[i]
+        }
+    }
+    return lastIndex
+}
+
+// console.log(last2(7, "zyx", "xb"));
+//--------------Задача на асинхронность----------------------
+// Расставьте тексты для console.log. Последний вывод: 1, 2, 3, 4, 5 📌*/
+
+async function first() {
+    await Promise.resolve(1).then(r => console.log(r));
+    await queueMicrotask(() => console.log(3));
+    await console.log(4);
+}
+async function second() {
+    first();
+    await Promise.resolve(2).then(r => console.log(r));
+    setTimeout(() => console.log(5), 0);
+}
+// console.log(second());
+second()
