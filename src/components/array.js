@@ -961,14 +961,21 @@ function last2(...anything) {
 // Расставьте тексты для console.log. Последний вывод: 1, 2, 3, 4, 5 📌*/
 
 async function first() {
-    await Promise.resolve(1).then(r => console.log(r));
-    await queueMicrotask(() => console.log(3));
-    await console.log(4);
+    await Promise.resolve(1).then(r => console.log(r));     //1
+    queueMicrotask(() => console.log(3));             //3
+    console.log(4);                                         //4
+    queueMicrotask(() => console.log(9));             //6
+    console.log(10);
+    console.log(12);
+    await Promise.resolve(8).then(r => console.log(r));     //8
 }
 async function second() {
     first();
-    await Promise.resolve(2).then(r => console.log(r));
-    setTimeout(() => console.log(5), 0);
+    await Promise.resolve(2).then(r => console.log(r));     //2
+    setTimeout(() => console.log(5), 0);                    //9
+    await Promise.resolve(6).then(r => console.log(r));     //5
+    console.log(11);
+    queueMicrotask(() => console.log(7));             //7
 }
 // console.log(second());
 second()
