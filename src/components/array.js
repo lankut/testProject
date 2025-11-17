@@ -1,5 +1,3 @@
-
-
 const names = ['Alex', 'Bob', 'Ivan', 'Sasha']
 const total = names.push('Nina')
 
@@ -978,4 +976,169 @@ async function second() {
     queueMicrotask(() => console.log(7));             //7
 }
 // console.log(second());
-second()
+// second()
+
+//--------------------function isAnagram-----------------------------------------------------------------
+let isAnagram = function (test, original) {
+
+    if (test.length === original.length) {
+        const testToLowerCase = test.toLowerCase()
+        const originalToLowerCase = original.toLowerCase()
+
+        const objTest = {}
+        const objOriginal = {}
+
+        for (let i = 0; i < testToLowerCase.length; i++) {
+            if (objTest[testToLowerCase[i]]) {
+                objTest[testToLowerCase[i]] += 1
+            } else {
+                objTest[testToLowerCase[i]] = 1
+            }
+        }
+
+        for (let j = 0; j < originalToLowerCase.length; j++) {
+            if (objOriginal[originalToLowerCase[j]]) {
+                objOriginal[originalToLowerCase[j]] += 1
+            } else {
+                objOriginal[originalToLowerCase[j]] = 1
+            }
+        }
+
+        const keyTest = Object.keys(objTest)
+        const keyOrigin = Object.keys(objOriginal)
+
+        if (keyTest.length !== keyOrigin.length) {
+            return false
+        }
+
+        for (let key of keyTest) {
+            if (objTest[key] !== objOriginal[key]) {
+                return false
+            }
+        }
+        return true
+    }
+    return false
+};
+
+// console.log(isAnagram("bQYoIpbXvxbyDsSq", "bbpIxYSqXyrQDbsv"));
+
+//---------------Return a sorted list of objects---------------------------------------------
+
+let arr13 = [
+    { a: 2, b: 2 },
+    { a: 3, b: 40 },
+    { a: 1, b: 12 }
+];
+
+function sortList(sortBy, list) {
+    return list.sort((a, b) => b[sortBy] - a[sortBy])
+}
+
+// console.log(sortList('b', arr13));
+// console.dir(document.getElementById('root'))
+
+//-----------------PROMISE--------------------------------------------
+const getData = () =>
+    new Promise((res, rej) => {
+        setTimeout(() => {
+            res('some data');
+            // rej("some error");
+        }, 1000);
+    });
+
+getData()
+    .then((data) => {
+        console.log("then1", data);
+        return new Promise((res, rej) => {
+            setTimeout(() => {
+                // res("some data from request2");
+                rej("some error");
+            }, 2000);
+        });
+    })
+    .then((data) => {
+        console.log("then2", data);
+        return 20;
+    })
+    .catch((data) => {
+        console.log("catch1", data);
+        // return;
+    })
+    .then((data) => {
+        console.log("then3", data);
+        return b;
+    })
+    .then((data) => {
+        console.log("then4", data);
+        return 40;
+    })
+    .catch((data) => {
+        console.log("catch2", data);
+        return 50;
+    })
+    .finally((data) => {
+        console.log("finally", data);
+        return 60; // ничего не примет и не вернет
+    })
+    .then((data) => {
+        console.log("then5", data);
+    });
+
+//------------------------------------------------------------------------------
+const getData1 = str =>
+    new Promise((res, rej) => {
+        setTimeout(() => {
+            res(str)
+            // rej("some error");
+        }, 1000)
+    })
+
+getData1('string1')
+    .then(data => {
+        console.log('then', data)
+        // return promise1;
+        return 10
+    })
+    .finally(() => {
+        console.log('finally')
+        return getData1('string2')// ничего не принимаеи и ничего не возвращает
+    })
+    .then(data => {
+        console.log('then 2', data)
+        return getData1('string3')
+    })
+    .then(data => {
+        console.log('then3', data)
+        return undefined
+    })
+
+// Первая: Напишите функцию delay(ms), которая возвращает промис, переходящий в состояние
+//  resolved через ms миллисекунд. Пример использования:
+
+const delay = (ms) => {
+    return new Promise((res, rej) => {
+        setTimeout(() => {
+            res()
+        }, ms)
+    })
+}
+
+delay(1000).then(() => console.log('Hello!'))
+
+// Вторая
+
+const promise1 = new Promise((res, rej) => {
+    setTimeout(() => {
+        // res("reject1");
+        rej("reject1");
+    }, 1000);
+});
+
+
+promise1
+    .catch((t) => t + "catch1")
+    .catch((t) => t + "catch2")
+    .then((t) => t + "then1")
+    .finally((t) => t + "finally")
+    .then((t) => console.log(t)); /// ??
