@@ -6,6 +6,7 @@ import { InputRef } from './components/inputRef.tsx';
 import { UncontrolledRating } from './uncontrolledRating.tsx';
 import { Accordion } from './components/accordion/accordion.tsx';
 import { Select } from './components/select/select.tsx';
+import {Clock} from './components/Clock.tsx'
 
 export type MessageType = {
     message: string
@@ -35,6 +36,7 @@ function App() {
 
     return (
         <div className="App">
+            <Clock/>
             {/*<FullInput onClick={onClickButtonHandler}/>*/}
             <Input title={title} setTitle={setTitle} />
             <Button callBack={callBack} name={'Add'} />
@@ -59,6 +61,8 @@ function App() {
                 { value: '5', title: 'iPhone15' },
                 { value: '6', title: 'iPhone12' },
             ]} />
+
+               
         </div>
     )
 }

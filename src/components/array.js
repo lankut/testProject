@@ -1142,3 +1142,82 @@ promise1
     .then((t) => t + "then1")
     .finally((t) => t + "finally")
     .then((t) => console.log(t)); /// ??
+
+//----------------------Consecutive Vowels in a String--------------------------------
+
+const word = 'akfheujfkgiaaaofmmfkdfuaiiie'
+
+function getTheVowels(word) {
+    const arr = ['a', 'e', 'i', 'o', 'u']
+    let counter = 0
+    let currentIndex = 0
+
+    for (let i = 0; i < word.length; i++) {
+        if (word[i] === arr[currentIndex]) {
+            counter++
+            currentIndex = (currentIndex + 1) % arr.length
+        }
+    }
+
+    return counter;
+}
+
+// console.log(getTheVowels(word));
+
+
+function countConsecutiveVowels(str) {
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    let count = 0;
+    let currentVowelIndex = 0;
+
+    let startIndex = str.indexOf('a');
+    if (startIndex === -1) return 0;
+
+
+    for (let i = startIndex; i < str.length; i++) {
+        if (str[i] === vowels[currentVowelIndex]) {
+            count++;
+            currentVowelIndex = (currentVowelIndex + 1) % vowels.length;
+        }
+    }
+    return count;
+}
+
+// console.log(countConsecutiveVowels(word));
+
+const arr14 = [5, 1, 2]
+const arr15 = [2, 1]
+
+function isSortedAndHow(array) {
+    let flag = false
+    const copyArray1 = [...array]
+    const sortAscending = copyArray1.sort((a, b) => a - b)
+
+    const copyArray2 = [...array]
+    const sortDescending = copyArray2.sort((a, b) => b - a)
+
+    const arr1 = []
+    for (let i = 0; i < sortAscending.length; i++) {
+        if (array[i] === sortAscending[i]) {
+            arr1.push(sortAscending[i])
+            if (arr1.length === sortAscending.length) {
+                flag = true
+                return 'yes, ascending'
+            }
+        }
+    }
+    const arr2 = []
+    for (let j = 0; j < sortDescending.length; j++) {
+        if (array[j] === sortDescending[j]) {
+            arr2.push(sortDescending[j])
+            if (arr2.length === sortDescending.length) {
+                flag = true
+                return 'yes, descending'
+            }
+        }
+    }
+    if (!flag) return 'no'
+}
+
+console.log(isSortedAndHow(arr14));
+

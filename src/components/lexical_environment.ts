@@ -1,5 +1,7 @@
 //globalLE {} --> null
 
+import { useState } from "react"
+
 startEngine()
 
 let car = 'bmw' //globalLE {car: 'bmw'} --> null
@@ -80,7 +82,3 @@ const pow = (x: number, n: number): number => {
 // console.log(pow(5, 3));
 
 // 2(4) === 2 * 2(3) === 2 * 2 * 2(2) === 2 * 2 * 2 * 2(1)
-
-
-
-
