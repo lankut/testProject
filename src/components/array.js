@@ -1219,5 +1219,56 @@ function isSortedAndHow(array) {
     if (!flag) return 'no'
 }
 
-console.log(isSortedAndHow(arr14));
+// console.log(isSortedAndHow(arr14));
 
+const array4 = [1, 10, 100]
+
+function findLongest(array) {
+
+    let length = array[0].toString().length
+    let number = array[0]
+
+    for (let i = 1; i < array.length; i++) {
+
+
+        if (length < array[i].toString().length) {
+            length = array[i].toString().length
+            number = array[i]
+        }
+    }
+
+    return number
+
+}
+
+// console.log(findLongest(array4));
+
+const startDateTest = new Date(2013, 1, 16, 11, 7, 50)
+const endDateTest = new Date(2013, 1, 17, 2, 18, 33)
+// console.log(startDateTest.getDate());
+// console.log(endDateTest.getDate());
+
+function elapsedSeconds(startDate, endDate) {
+
+    const numbersOfDays = endDate.getDate() - startDate.getDate()
+
+    function getSeconds(date) {
+        const dateHoursInSeconds = 60 * 60 * date.getHours()
+        const dateMinutesInSeconds = 60 * date.getMinutes()
+        const dateSeconds = date.getSeconds()
+        return dateHoursInSeconds + dateMinutesInSeconds + dateSeconds
+    }
+
+    const startDateSeconds = getSeconds(startDate)
+    const endDateSeconds = getSeconds(endDate)
+
+    if (numbersOfDays) {
+        const withDay = 86400 - startDateSeconds + endDateSeconds
+
+        return withDay
+    }
+
+    return endDateSeconds - startDateSeconds
+}
+
+console.log(elapsedSeconds(startDateTest, endDateTest));
