@@ -69,7 +69,7 @@ console.log('10')
 
 //------------------------------------------------------------------------
 
-(function qustion3() {
+function qustion3() {
 
     try {
         let x = 4;
@@ -91,8 +91,8 @@ console.log('10')
     } catch (err) {
         console.log('y_const_error', err)
     }
-})()
-
+}
+qustion3()
 //------------------------------------------------------------------------
 
 async function first() {

@@ -60,13 +60,19 @@ function setupButton() {
 setupButton();
 
 function outer2() {
-    let car = "audi";
+    try {
+        let car = "audi";
 
-    function inner() {
-        // console.log(car);
+        function inner() {
+            // console.log(car);
+        }
+
+        setTimeout(inner, 1000);
     }
 
-    setTimeout(inner, 1000);
+    catch (err) {
+        console.log('Ошибка', err)
+    }
 }
 
 outer2();
